@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Khusi ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+overflow-x:hidden;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
+min-height:100vh;
+color:white;
+text-align:center;
+}
+
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+
+.heart{
+position:absolute;
+color:rgba(255,255,255,.8);
+font-size:22px;
+animation:float linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) rotate(0deg);
+opacity:0;
+}
+20%{opacity:1;}
+100%{
+transform:translateY(-120px) rotate(360deg);
+opacity:0;
+}
+}
+
+.container{
+padding:60px 20px;
+}
+
+h1{
+font-family:"Dancing Script",cursive;
+font-size:70px;
+margin-bottom:10px;
+}
+
+h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+p{
+max-width:800px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
+}
+
+.card{
+margin:50px auto;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+width:90%;
+max-width:900px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4d88;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+margin-top:20px;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.hidden{
+display:none;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.footer{
+margin:40px;
+font-size:18px;
+}
+
+.counter{
+font-size:30px;
+font-weight:bold;
+margin-top:15px;
+}
+
+img{
+width:180px;
+height:180px;
+border-radius:50%;
+border:5px solid white;
+margin-bottom:20px;
+object-fit:cover;
+}
+
+.music{
+margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div class="container">
+
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500" alt="">
+
+<h1>Dear Khusi ❤️</h1>
+
+<h2>You Make My World Beautiful ✨</h2>
+
+<div class="card">
+
+<p>
+Every smile of yours makes my day brighter.
+Every conversation with you becomes one of my favorite memories.
+You are kind, caring, and incredibly special.
+
+I just wanted to create something that reminds you how much you mean to me.
+No matter where life takes us, I hope your smile always stays as beautiful as it is today.
+❤️
+</p>
+
+<button onclick="showMessage()">Click Here ❤️</button>
+
+<div id="love" class="hidden">
+
+<h2 style="margin-top:30px;">
+You're Amazing, Khusi 🌹
+</h2>
+
+<p>
+Thank you for being the wonderful person you are.
+I hope this little surprise makes you smile.
+You deserve happiness every single day.
+💕
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Time Since This Page Was Created ❤️</h2>
+
+<div class="counter" id="counter"></div>
+
+</div>
+
+<div class="music">
+<audio controls autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="footer">
+Made with ❤️ especially for <b>Khusi</b>
+</div>
+
+</div>
+
+<script>
+
+function showMessage(){
+document.getElementById("love").classList.remove("hidden");
+}
+
+const hearts=document.querySelector(".hearts");
+
+function createHeart(){
+
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*35)+"px";
+heart.style.animationDuration=(4+Math.random()*6)+"s";
+
+hearts.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,250);
+
+const startDate=new Date();
+
+function updateCounter(){
+
+const now=new Date();
+
+let diff=Math.floor((now-startDate)/1000);
+
+let days=Math.floor(diff/86400);
+diff%=86400;
+
+let hours=Math.floor(diff/3600);
+diff%=3600;
+
+let minutes=Math.floor(diff/60);
+
+let seconds=diff%60;
+
+document.getElementById("counter").innerHTML=
+days+" Days "
++hours+" Hours "
++minutes+" Minutes "
++seconds+" Seconds";
+
+}
+
+setInterval(updateCounter,1000);
+
+</script>
+
+</body>
+</html>
